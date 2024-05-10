@@ -56,3 +56,6 @@ client = OpenMultIA(url)
 #     priority=1
 # )
 # response.stream_to_file(speech_file_path)
+
+#List Models
+# client.models.list()

@@ -2,7 +2,7 @@ from MultiaAudio import Audio
 from MultiaChat import Chat
 from MultiaImages import Images
 from MultiaVision import Vision
-
+from Models import Models
 
 class OpenMultIA:
     """
@@ -25,6 +25,7 @@ class OpenMultIA:
         self.audio = Audio(self)
         self.images = Images(self)
         self.vision = Vision(self)
+        self.models = Models(self)
 
 
 
