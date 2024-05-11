@@ -1,6 +1,6 @@
 # OpenMultAI Library
 
-OpenMultIA is a versatile Python library designed to facilitate interaction with the MultAI API, a service that provides the API to perform inference on AI models. OpenMultIA is built to be similar to the OpenAI API, enabling seamless migration from OpenAI to MultAI with minimal adjustments. It provides unified access to audio, chat, images, and vision functionalities.
+OpenMultIA is a versatile Python library designed to facilitate interaction with the [MultAI API](https://github.com/LiamMahmud/MultAI), a service that provides the API to perform inference on AI models. OpenMultIA is built to be similar to the OpenAI API, enabling seamless migration from OpenAI to MultAI with minimal adjustments. It provides unified access to audio, chat, images, and vision functionalities.
 
 ## Installation
 
@@ -36,7 +36,7 @@ prompt = [
 ]
 
 response = client.chat.completions.create(
-    model="Llama2-7b", 
+    model="Mistral-7b", 
     messages=prompt, 
     max_tokens=400,
     n_gpu_layers=30, 
@@ -67,6 +67,7 @@ response = client.images.generate(
 )
 response.stream_to_file("images.zip")
 ```
+If generating more than 1 file, the stream will be into a .zip file, if generating just 1 file it will be creates as a .jpg
 
 ### Vision
 
@@ -76,7 +77,7 @@ Analyze images to generate descriptive insights:
 response = client.vision.generate(
     "Llava_4bit", 
     prompt="What do you see in this image?", 
-    image_path="x.jpg", 
+    image_path="fox.jpg", 
     max_tokens=400
 )
 print(response)
@@ -95,6 +96,7 @@ response = client.audio.transcriptions.create(
 )
 print(response)
 ```
+initial_prompt is meant to facilitate the model with not real words that are said in the speech, or to give own names
 
 ### Audio Translation
 
@@ -104,7 +106,7 @@ Translate spoken content from one language to another:
 response = client.audio.translations.create(
     model="large", 
     file_path="speech.mp3", 
-    initial_prompt="Hola, me llamo Liam. ¿Cómo te llamas tú?", 
+    initial_prompt="Roshas, Adolin", 
     language="es"
 )
 print(response)
@@ -123,6 +125,7 @@ response = client.audio.speech.create(
 )
 response.stream_to_file(speech_file_path)
 ```
+To access table with all available voice presets from Bark model used in MultAI go [here](https://suno-ai.notion.site/8b8e8749ed514b0cbf3f699013548683?v=bc67cff786b04b50b3ceb756fd05f68c)
 
 ## Support
 
