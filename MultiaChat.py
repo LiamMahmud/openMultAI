@@ -116,7 +116,7 @@ class Choice:
         - `finish_reason`: The reason for finishing this choice.
         """
         self.index = index
-        self.message = message
+        self.message = message["content"]
         self.finish_reason = finish_reason
 
 

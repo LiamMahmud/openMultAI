@@ -3,3 +3,4 @@
 *.mp3
 __pycharm__/
 .idea/
+/__pycache__/
