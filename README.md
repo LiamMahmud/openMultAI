@@ -67,7 +67,7 @@ response = client.images.generate(
 )
 response.stream_to_file("images.zip")
 ```
-If generating more than 1 file, the stream will be into a .zip file, if generating just 1 file it will be creates as a .jpg
+If generating more than 1 file, the stream will be into a .zip file, if generating just 1 file it will create a .jpg
 
 ### Vision
 
