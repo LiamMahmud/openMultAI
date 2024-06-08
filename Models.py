@@ -6,5 +6,5 @@ class Models:
         self.client = client
 
     def list(self):
-        response = requests.get(f"{self.client}/list/models")
+        response = requests.get(f"{self.client.base_url}/list/models")
         return response.json()

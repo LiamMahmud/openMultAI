@@ -77,7 +77,7 @@ class Completions:
         Returns:
         - A `CompletionsResponse` object containing the generated response, or a streamed response if `stream` is True.
         """
-        request_json = {'model_name': model,
+        request_json = {'model': model,
                         'n_gpu_layers': n_gpu_layers,
                         'n_threads': n_threads,
                         'main_gpu': main_gpu,
@@ -95,7 +95,6 @@ class Completions:
                         }
 
         response_data = requests.post(f"{self.client.base_url}/chat/completions", json=request_json)
-
         completion = CompletionsResponse(**response_data.json())
         if request_json['stream']:
             return response_data
@@ -106,7 +105,7 @@ class Choice:
     """
     A class representing a choice within a completion response.
     """
-    def __init__(self, index: int, message: dict, finish_reason: str):
+    def __init__(self, index: int, message: dict, finish_reason: str, logprobs, **kwargs):
         """
         Initializes the `Choice` class with given attributes.
 
@@ -118,6 +117,7 @@ class Choice:
         self.index = index
         self.message = message["content"]
         self.finish_reason = finish_reason
+        self.logprobs = logprobs
 
 
 class CompletionsResponse:
@@ -131,6 +131,7 @@ class CompletionsResponse:
                  model: str,
                  object: str,
                  usage: dict,
+                 **kwargs
                  ):
         """
         Initializes the `CompletionsResponse` class.
