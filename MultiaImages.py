@@ -39,7 +39,7 @@ class Images:
         """
         request_json = {
             'prompt': prompt,
-            'model_name': model,
+            'model': model,
             'n': n,
             'number_steps': number_steps,
             'priority': priority

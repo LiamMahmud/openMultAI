@@ -54,7 +54,7 @@ class Speech:
         """
         request_json = {
             'prompt': prompt,
-            "model_name": model,
+            "model": model,
             "voice_preset": voice_preset,
             'priority': priority
         }
@@ -95,7 +95,7 @@ class Transcription:
         - A string containing the transcribed text.
         """
         request_json = {
-            'model_name': model,
+            'model': model,
             'language': language,
             'initial_prompt': initial_prompt,
             'priority': priority
@@ -139,7 +139,7 @@ class Translation:
         - A string containing the translated text.
         """
         request_json = {
-            'model_name': model,
+            'model': model,
             'language': language,
             'initial_prompt': initial_prompt,
             'priority': priority

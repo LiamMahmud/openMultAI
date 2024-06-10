@@ -47,7 +47,7 @@ class Vision:
         """
 
         data = {
-            'model_name': model,
+            'model': model,
             'messages': messages,
             'max_tokens': max_tokens,
             'priority': priority,
@@ -56,22 +56,22 @@ class Vision:
         if image_path is not None:
             if image_path.startswith("http:/") or image_path.startswith("https:/"):
                 data = {
-                    'model_name': model,
+                    'model': model,
                     'messages': messages,
                     'max_tokens': max_tokens,
                     'priority': priority,
-                    "image": image_path,  # Including the encoded image directly in the JSON
+                    "image": image_path,
                     "mime_type": mime_type,
                 }
             else:
                 with open(image_path, "rb") as image_file:
                     encoded_image = base64.b64encode(image_file.read()).decode('utf-8')
                 data = {
-                    'model_name': model,
+                    'model': model,
                     'messages': messages,
                     'max_tokens': max_tokens,
                     'priority': priority,
-                    "image": encoded_image,  # Including the encoded image directly in the JSON
+                    "image": encoded_image,
                     "mime_type": mime_type,
                 }
 
